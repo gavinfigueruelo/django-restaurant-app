@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-from django.db import models
+# from django.db import models
 
 class Menu(models.Model):
     LIGHTS = 'Lights'
@@ -22,3 +22,7 @@ class Menu(models.Model):
 
     def __str__(self):
         return self.text[:50]
+
+class Order(models.Model):
+    name = models.CharField(max_length=255)
+    order_items = models.JSONField(encoder=None, decoder=None, null=True)
